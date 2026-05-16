@@ -139,11 +139,11 @@ def export_module(json_input, save_to_file=False, export_format="gate_json"):
     except json.JSONDecodeError:
         return {"status": "error", "message": "Invalid JSON input."}
 
-    # Check 3: Required fields
-    if "circuit_name" not in data or "components" not in data or "connections" not in data:
-        return {"status": "error", "message": "Missing fields in JSON."}
+# Check 3: Required fields (Updated to make circuit_name optional)
+    if "components" not in data or "connections" not in data:
+        return {"status": "error", "message": "Missing required fields (components/connections) in JSON."}
 
-    name        = data["circuit_name"]
+    name        = data.get("circuit_name", "CircuitMind_Generated_Circuit")
     components  = data["components"]
     connections = data["connections"]
 
