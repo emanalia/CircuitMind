@@ -10,3 +10,8 @@ circuit_output.txt
 generate/output.json
 test_circuitmind.py
 circuitmind/
+
+# make-folder-txt
+.txtconfig
+.txtignore
+CircuitMind.txt
